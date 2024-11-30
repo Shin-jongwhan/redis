@@ -37,4 +37,10 @@ docker exec -it redis redis-cli
 | 신뢰성 | redis 서버 장애 시 신뢰성 약함 | 과반수 노드에서 잠금을 유지 | 
 | 네트워크 장애 내성 | 네트워크 장애 시 동기화 어려움 | 노드 일부 장애에도 잠금 유지 | 
 | 설정 복잡도 | 간단 | 다수의 Redis 노드와 동기화 필요 | 
-### <br/>
+### <br/><br/>
+
+## GUI 툴
+### RDM이라는 툴도 있지만 유료라고 하고 나는 redis insight라고 하는 공식 지원 툴을 이용하였다.
+#### https://redis.io/insight/
+#### ![image](https://github.com/user-attachments/assets/0bf4f358-e8df-4384-8b3e-35a4bb413054)
+

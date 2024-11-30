@@ -43,4 +43,27 @@ docker exec -it redis redis-cli
 ### RDM이라는 툴도 있지만 유료라고 하고 나는 redis insight라고 하는 공식 지원 툴을 이용하였다.
 #### https://redis.io/insight/
 #### ![image](https://github.com/user-attachments/assets/0bf4f358-e8df-4384-8b3e-35a4bb413054)
+### <br/><br/>
 
+## TTL (Time To Live)
+### 인 메모리 데이터베이스라서 TTL이 중요하다.
+### 초 단위로 들어가며, EX로 값을 넣을 수 있다.
+```
+SET key1 "Hello, Redis" EX 60
+```
+### <br/><br/>
+
+## Append-Only File (AOF)
+### Redis의 모든 쓰기 명령(write commands)을 로그 파일에 기록하는 방식
+### 명령어 단위로 데이터를 기록하므로, 서버가 비정상 종료되더라도 AOF 파일을 사용해 데이터를 복구할 수 있다.
+- Always
+  - 모든 쓰기 명령을 즉시 디스크에 기록.
+  - 가장 안전하지만, 성능이 가장 느림.
+- Everysec (기본값)
+  - 매 초마다 쓰기 명령을 디스크에 기록.
+  - 성능과 안정성의 균형.
+  - Redis가 비정상 종료되더라도 최대 1초의 데이터만 손실.
+-No
+  - 운영 체제의 버퍼를 활용해 디스크로 데이터를 플러시.
+  - 성능은 좋지만 안정성이 떨어짐.
+### <br/><br/>
